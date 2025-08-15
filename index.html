@@ -2,12 +2,13 @@
 <html dir="rtl">
 <head>
 <meta charset="UTF-8">
+<title>SimouCastTV</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap" rel="stylesheet">
 <style>
 body {
   margin:0;
-  background:#fff;
+  background:#111;
   font-family: 'Readex Pro', sans-serif;
 }
 header {
@@ -20,6 +21,7 @@ header {
   display:flex;
   align-items:center;
   box-shadow:0 0 7px black;
+  z-index: 10;
 }
 header img {
   height:35px;
@@ -30,36 +32,39 @@ header h3 {
 }
 #page {
   margin-top:75px;
-  text-align:center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 15px;
 }
 #page a {
+  background: #1a1a1a;
   border:2px solid #2ecb66;
-  height:140px;
-  width:120px;
+  height:170px;
+  width:150px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius:10px;
+  border-radius:12px;
   text-decoration:none;
   transition: 0.3s;
+  overflow: hidden;
 }
 #page a:hover {
-  background:#111;
+  background:#2ecb66;
+  transform: scale(1.05);
 }
 #page a img {
-  height:80px;
+  height:90px;
   width:90%;
+  object-fit: contain;
   margin-top:5px;
 }
 #page a p {
-  font-size:13px;
+  font-size:14px;
   font-weight:600;
-  color:#990000;
+  color:#fff;
   margin: 5px 0 0 0;
   text-align:center;
   white-space: nowrap;
@@ -78,44 +83,31 @@ header h3 {
 <div id="page"></div>
 
 <script>
-// 📌 هنا تضيف القنوات: رابط المشاهدة + صورة القناة + اسم القناة
 const channels = [
-  {
-    name: "Bein Sport 1",
-    link: "http://125x.org:8080/bn1hd/tracks-v1a1/mono.m3u8",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-  },
-  {
-    name: "Bein Sport 2",
-    link: "http://125x.org:8080/bn2hd/tracks-v1a1/mono.m3u8",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-  },
-  {
-    name: "Bein Sport 3",
-    link: "http://125x.org:8080/bn3hd/tracks-v1a1/mono.m3u8",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-  },
-  {
-    name: "Bein Sport 4",
-    link: "http://125x.org:8080/bn4hd/tracks-v1a1/mono.m3u8",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-    
-  },
-    {
-    name: "Bein Sport 5",
-    link: "https://static.vecteezy.com/system/resources/previews/003/582/701/non_2x/coming-soon-background-illustration-template-design-free-vector.jpg",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-    
-  },
-    {
-    name: "Bein Sport 6",
-    link: "http://125x.org:8080/bn6hd/tracks-v1a1/mono.m3u8",
-    img: "https://img.favpng.com/5/19/14/la-liga-bein-sports-1-bein-channels-network-png-favpng-nnKwW309ftS6MzpRNepBQJUm9.jpg"
-    
-  }
+  // 📌 Bein Sports (مرتبة)
+  { name: "Bein Sport 1", link: "http://125x.org:8080/bn1hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+  { name: "Bein Sport 2", link: "http://125x.org:8080/bn2hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+  { name: "Bein Sport 3", link: "http://125x.org:8080/bn3hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+  { name: "Bein Sport 4", link: "http://125x.org:8080/bn4hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+  { name: "Bein Sport 5", link: "http://125x.org:8080/bn5hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+  { name: "Bein Sport 6", link: "http://125x.org:8080/bn6hd/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/wmQ4n6U.png" },
+
+  // 📌 قنوات أخرى من الكود الثاني
+  { name: "Canal+ Sport 1", link: "http://125x.org:8080/canalplus1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+  { name: "Canal+ Sport 2", link: "http://125x.org:8080/canalplus2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+  { name: "Canal+ Sport 3", link: "http://125x.org:8080/canalplus3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+  { name: "Canal+ Sport 4", link: "http://125x.org:8080/canalplus4/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+
+  { name: "Sky Sport 1", link: "http://125x.org:8080/skysport1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
+  { name: "Sky Sport 2", link: "http://125x.org:8080/skysport2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
+  { name: "Sky Sport 3", link: "http://125x.org:8080/skysport3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
+
+  { name: "RMC Sport 1", link: "http://125x.org:8080/rmc1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
+  { name: "RMC Sport 2", link: "http://125x.org:8080/rmc2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
+  { name: "RMC Sport 3", link: "http://125x.org:8080/rmc3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" }
 ];
 
-// 🔄 عرض القنوات تلقائياً
+// 🔄 عرض القنوات
 const page = document.getElementById("page");
 channels.forEach(ch => {
   page.innerHTML += `
@@ -129,7 +121,3 @@ channels.forEach(ch => {
 
 </body>
 </html>
-
-
-
-
