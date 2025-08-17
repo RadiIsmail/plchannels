@@ -27,21 +27,29 @@ header img {
   height:35px;
   margin:0 10px;
 }
-header h3 {
-  margin:0;
+header h3 { margin:0; }
+
+h2 {
+  color:#2ecb66;
+  padding:10px 20px 0;
 }
+
 #page {
   margin-top:75px;
+  padding: 15px;
+}
+.group {
+  margin-bottom:30px;
+}
+.channels {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
-  padding: 15px;
 }
-#page a {
+.channels a {
   background: #1a1a1a;
   border:2px solid #2ecb66;
   height:170px;
-  width:150px;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -51,17 +59,17 @@ header h3 {
   transition: 0.3s;
   overflow: hidden;
 }
-#page a:hover {
+.channels a:hover {
   background:#2ecb66;
   transform: scale(1.05);
 }
-#page a img {
+.channels a img {
   height:90px;
   width:90%;
   object-fit: contain;
   margin-top:5px;
 }
-#page a p {
+.channels a p {
   font-size:14px;
   font-weight:600;
   color:#fff;
@@ -83,45 +91,72 @@ header h3 {
 <div id="page"></div>
 
 <script>
-const channels = [
-  // 📌 Bein Sports (مرتبة)
-  { name: "Bein Sport 1", link: "http://125x.org:8080/bn1hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sport 2", link: "http://125x.org:8080/bn2hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sport 3", link: "http://125x.org:8080/bn3hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sport 4", link: "http://125x.org:8080/bn4hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sport 5", link: "http://125x.org:8080/bn5hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sport 6", link: "http://125x.org:8080/bn6hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  { name: "Bein Sports Xtra", link: "https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8
-", img: "https://l.top4top.io/p_3515ehhia1.png" },
-  
-
-  // 📌 قنوات أخرى من الكود الثاني
-  { name: "Canal+ Sport 1", link: "http://125x.org:8080/canalplus1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
-  { name: "Canal+ Sport 2", link: "http://125x.org:8080/canalplus2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
-  { name: "Canal+ Sport 3", link: "http://125x.org:8080/canalplus3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
-  { name: "Canal+ Sport 4", link: "http://125x.org:8080/canalplus4/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
-
-  { name: "Sky Sport 1", link: "http://125x.org:8080/skysport1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
-  { name: "Sky Sport 2", link: "http://125x.org:8080/skysport2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
-  { name: "Sky Sport 3", link: "http://125x.org:8080/skysport3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
-
-  { name: "RMC Sport 1", link: "http://125x.org:8080/rmc1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
-  { name: "RMC Sport 2", link: "http://125x.org:8080/rmc2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
-  { name: "RMC Sport 3", link: "http://125x.org:8080/rmc3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" }
+const groups = [
+  {
+    title: "📺 Bein Sports",
+    channels: [
+      { name: "Bein Sport 1", link: "http://125x.org:8080/bn1hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sport 2", link: "http://125x.org:8080/bn2hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sport 3", link: "http://125x.org:8080/bn3hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sport 4", link: "http://125x.org:8080/bn4hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sport 5", link: "http://125x.org:8080/bn5hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sport 6", link: "http://125x.org:8080/bn6hd/tracks-v1a1/mono.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" },
+      { name: "Bein Sports Xtra", link: "https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8", img: "https://l.top4top.io/p_3515ehhia1.png" }
+    ]
+  },
+  {
+    title: "🇫🇷 Canal+ Sport",
+    channels: [
+      { name: "Canal+ Sport 1", link: "http://125x.org:8080/canalplus1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+      { name: "Canal+ Sport 2", link: "http://125x.org:8080/canalplus2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+      { name: "Canal+ Sport 3", link: "http://125x.org:8080/canalplus3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" },
+      { name: "Canal+ Sport 4", link: "http://125x.org:8080/canalplus4/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/BR8hQFW.png" }
+    ]
+  },
+  {
+    title: "🇩🇪 Sky Sports",
+    channels: [
+      { name: "Sky Sport 1", link: "http://125x.org:8080/skysport1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
+      { name: "Sky Sport 2", link: "http://125x.org:8080/skysport2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" },
+      { name: "Sky Sport 3", link: "http://125x.org:8080/skysport3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/8A2Fztg.png" }
+    ]
+  },
+  {
+    title: "🇫🇷 RMC Sports",
+    channels: [
+      { name: "RMC Sport 1", link: "http://125x.org:8080/rmc1/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
+      { name: "RMC Sport 2", link: "http://125x.org:8080/rmc2/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" },
+      { name: "RMC Sport 3", link: "http://125x.org:8080/rmc3/tracks-v1a1/mono.m3u8", img: "https://i.imgur.com/nVRxVlb.png" }
+    ]
+  },
+  {
+    title: "🇦🇪 Dubai TV",
+    channels: [
+      { name: "Dubai Sports 1", link: "https://dmitwlvvll.cdn.mangomolo.com/dubaisports/smil:dubaisports.smil/playlist.m3u8", img: "https://i.imgur.com/MX2tbAm.png" },
+      { name: "Dubai Sports 2", link: "https://dmitwlvvll.cdn.mangomolo.com/dubaisports2/smil:dubaisports2.smil/playlist.m3u8", img: "https://i.imgur.com/MX2tbAm.png" },
+      { name: "Dubai Sports 3", link: "https://dmitwlvvll.cdn.mangomolo.com/dubaisports3/smil:dubaisports3.smil/playlist.m3u8", img: "https://i.imgur.com/MX2tbAm.png" },
+      { name: "Dubai One", link: "https://dmitwlvvll.cdn.mangomolo.com/dubaione/smil:dubaione.smil/playlist.m3u8", img: "https://i.imgur.com/ErC7oXa.png" },
+      { name: "Dubai TV", link: "https://dmitwlvvll.cdn.mangomolo.com/dubaitv/smil:dubaitv.smil/playlist.m3u8", img: "https://i.imgur.com/ErC7oXa.png" }
+    ]
+  }
 ];
 
-// 🔄 عرض القنوات
+// 🔄 عرض القنوات حسب المجموعات
 const page = document.getElementById("page");
-channels.forEach(ch => {
-  page.innerHTML += `
-    <a href="${ch.link}">
-      <img src="${ch.img}">
-      <p>${ch.name}</p>
-    </a>
-  `;
+groups.forEach(group => {
+  let section = `<div class="group"><h2>${group.title}</h2><div class="channels">`;
+  group.channels.forEach(ch => {
+    section += `
+      <a href="${ch.link}">
+        <img src="${ch.img}">
+        <p>${ch.name}</p>
+      </a>
+    `;
+  });
+  section += `</div></div>`;
+  page.innerHTML += section;
 });
 </script>
 
 </body>
 </html>
-
