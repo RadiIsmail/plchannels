@@ -39,16 +39,8 @@
     }
 
     @keyframes glow {
-      0%, 100% {
-        color: #fff;
-        text-shadow: none;
-        opacity: 0.5;
-      }
-      50% {
-        color: #ffffff;
-        text-shadow: 0 0 8px #fff, 0 0 16px #fff;
-        opacity: 1;
-      }
+      0%, 100% { color: #fff; text-shadow: none; opacity: 0.5; }
+      50% { color: #ffffff; text-shadow: 0 0 8px #fff, 0 0 16px #fff; opacity: 1; }
     }
 
     /* توزيع التأخير للحروف */
@@ -88,7 +80,7 @@
       gap: 14px;
     }
     .card {
-      background: rgba(93, 51, 181, 0.9); /* بنفسجي */
+      background: rgba(93, 51, 181, 0.9);
       border: 2px solid #5e3bb4;
       border-radius: 14px;
       padding: 10px;
@@ -138,27 +130,26 @@
   <script>
     // 🔹 روابط القنوات
     const channels = [
-  { name: "T Sports", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/T%20Sports.png", link: "https://iptvcable.netlify.app/Altogether-007/Tsports.m3u8", category: "Sports" },
-  { name: "Star Sports 1 HD", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Star%20Sports%201%40.jpeg", link: "http://41.205.93.154/STARSPORTS1/index.m3u8", category: "Sports" },
-  { name: "Eurosports", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Eurosports.png", link: "https://raw.githubusercontent.com/subirkumarpaul/My-iptv/main/Eurosport.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 1", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/vavnvm.png", link: "https://otttv.co.in/d2h/livestream/sony-ten-1-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 3", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/fnrzdk.png", link: "https://otttv.co.in/d2h/livestream/sony-ten-3-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 5", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/dasenw.png", link: "https://otttv.co.in/d2h/livestream/sony-ten-5-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 2", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/vcbjdy.png", link: "https://otttv.co.in/d2h/livestream/sony-ten-2-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 1 HD", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/rtyulo.png", link: "https://otttv.co.in/d2h/livestream/sony-sports-ten-1-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 2 HD", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/cxwken.png", link: "https://otttv.co.in/d2h/livestream/sony-sports-ten-2-hd/master.m3u8", category: "Sports" },
-  { name: "Sony Sports Ten 3 HD", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/atjlma.png", link: "https://otttv.co.in/d2h/livestream/sony-sports-ten-3-hd/master.m3u8", category: "Sports" },
-  { name: "T Sports HD", img: "https://i.ibb.co.com/Q3F9JyKH/T-Sports.jpg", link: "https://tvsen6.aynaott.com/tsportsfhd/tracks-v1a1/mono.ts.m3u8", category: "Sports" },
-  { name: "RTA Sports HD", img: "https://i.ibb.co/4jQHgVj/download-5.png", link: "https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/variant.m3u8", category: "Sports" },
-  { name: "Sportsnet 360", img: "https://media.starlite.best/sportsnet.360.ca.png", link: "http://38.143.48.212:9981/stream/channelid/1618628267?profile=pass", category: "Sports" },
-  { name: "Sportsnet Pacific", img: "https://media.starlite.best/sportsnet.pacific.ca.png", link: "http://38.143.48.212:9981/stream/channelid/1546770827?profile=pass", category: "Sports" },
-  { name: "LRT Plius", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/LRT_Plius_Logo_2022.svg/250px-LRT_Plius_Logo_2022.svg.png", link: "http://6f1f83d9.akadatel.com/iptv/ET85VGCD8YTWLC/6362/index.m3u8", category: "Sports" },
-  { name: "Sky Sports Main Event", img: "https://i.ibb.co/CwMZcpP/sky-main-event.png", link: "https://a1xs.vip/2000001", category: "Sports" },
-  { name: "Sky Sports Main Event UHD", img: "https://i.ibb.co/gwCk7Bc/sky-m-event-uhd.png", link: "https://a1xs.vip/2000015", category: "Sports" },
-  { name: "Sky Sports Premier League", img: "https://i.ibb.co/rcSRMh9/sky-sports-pl.png", link: "https://a1xs.vip/2000002", category: "Sports" },
-  { name: "Sky Sports F1 UHD", img: "https://i.imgur.com/aetKPNi.png", link: "https://a1xs.vip/2000016", category: "Sports" },
-  { name: "TNT Sports 1", img: "https://i.imgur.com/1EYnddH.png", link: "https://a1xs.vip/2000021", category: "Sports" },
-  { name: "TNT Sports Ultimate", img: "https://i.ibb.co/QqGdJnM/TNTSprts-U.png", link: "https://a1xs.vip/2000031", category: "Sports" },
+      { name: "T Sports", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/T%20Sports.png", link: "https://iptvcable.netlify.app/Altogether-007/Tsports.m3u8" },
+      { name: "Star Sports 1 HD", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Star%20Sports%201%40.jpeg", link: "http://41.205.93.154/STARSPORTS1/index.m3u8" },
+      { name: "Eurosports", img: "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Eurosports.png", link: "https://raw.githubusercontent.com/subirkumarpaul/My-iptv/main/Eurosport.m3u8" },
+      { name: "Sony Sports Ten 1", img: "https://d388d59m61mm0v.cloudfront.net/optimized/content/common/logos/channel/logos/vavnvm.png", link: "https://otttv.co.in/d2h/livestream/sony-ten-1-hd/master.m3u8" },
+       { name: "Ten Sports", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/10-by-xfireflix.png", link: "https://d9.merichunidya.com:1686/hls/tenspk.m3u8?md5=PaQBy2uHTNWyZ2CeANILmw&expires=1756574522", category: "Sports" },
+  { name: "Sky Sports Cricket", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/9-by-xfireflix.png", link: "https://d5.merichunidya.com:1686/hls/skyscric.m3u8?md5=2MtggpKjWEV6iIsFosUcmw&expires=1756574523", category: "Sports" },
+  { name: "Star Sports 1 Hindi", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/1-by-xfireflix.png", link: "https://d10.merichunidya.com:1686/hls/starhindi.m3u8?md5=xE_86Vr0kOzebSziMoLm8Q&expires=1756574521", category: "Sports" },
+  { name: "Willow HD 2", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/8-by-xfireflix.png", link: "https://d8.merichunidya.com:1686/hls/willowextra.m3u8?md5=PexJ25CRelb9VjWcf95Sbw&expires=1756574522", category: "Sports" },
+  { name: "Star Sports 1", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/16-by-xfireflix.png", link: "https://d9.merichunidya.com:1686/hls/star1in.m3u8?md5=HEBGOLIjN3DsE_n0hENPIw&expires=1756574521", category: "Sports" },
+  { name: "PTV Sports", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/20-by-xfireflix.png", link: "https://d1.merichunidya.com:1686/hls/ptvpk.m3u8?md5=a2Hu4s7_2z9p-CFQr86_cA&expires=1756574522", category: "Sports" },
+  { name: "Sky Sports Main Event", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/18-by-xfireflix.png", link: "https://d7.merichunidya.com:1686/hls/skysme.m3u8?md5=DW2O8AEgbLXWjSs3di2Osg&expires=1756574523", category: "Sports" },
+  { name: "TNT 4", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/tnt.png", link: "https://d10.merichunidya.com:1686/hls/bbtespn.m3u8?md5=IwkNq5S5Lvma8yEZKffkjw&expires=1756574524", category: "Sports" },
+  { name: "Willow HD", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/38-by-xfireflix.png", link: "https://d4.merichunidya.com:1686/hls/willowusa.m3u8?md5=bpq6N13jLzBaO17_et8WZg&expires=1756574522", category: "Sports" },
+  { name: "A Sports HD", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/12-by-xfireflix.png", link: "https://d7.merichunidya.com:1686/hls/asportshd.m3u8?md5=qOD8Kx7FDJMXQDJh6VJMfQ&expires=1756574523", category: "Sports" },
+  { name: "Sky Sports Football", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/44-by-xfireflix.png", link: "https://d9.merichunidya.com:1686/hls/skysfott.m3u8?md5=7Lc611I3O3Q5q9kW62-cWA&expires=1756574527", category: "Sports" },
+  { name: "Sky Sports Premier League", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/43-by-xfireflix.png", link: "https://d10.merichunidya.com:1686/hls/skysprem.m3u8?md5=cXU_RKsxclPenZ4-7mu_Iw&expires=1756574527", category: "Sports" },
+  { name: "Premier Sports 1", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/31-by-xfireflix.png", link: "https://d5.merichunidya.com:1686/hls/premieruk.m3u8?md5=hkm4FbuRG-dPG-ljJ17CAA&expires=1756574528", category: "Sports" },
+  { name: "Premier Sports 2", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/31-by-xfireflix.png", link: "https://d3.merichunidya.com:1686/hls/hdchnl2.m3u8?md5=3kA1KKrC6vzvdvaibACh-Q&expires=1756574528", category: "Sports" },
+  { name: "Sky Sports Tennis", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/1745009085794.png", link: "https://d9.merichunidya.com:1686/hls/skystennis.m3u8?md5=oDqDar3AGN6f9GAOCYv3vg&expires=1756574530", category: "Sports" }
+      // … أضف باقي القنوات حسب الحاجة
     ];
 
     const grid = document.getElementById('grid');
@@ -173,7 +164,9 @@
           <div class="name">${ch.name}</div>
         `;
         card.addEventListener('click', () => {
-          window.location.href = ch.link;
+          // فتح القناة في مشغل AppCreator24
+          const playerUrl = `https://appcreator24.com/player?url=${encodeURIComponent(ch.link)}`;
+          window.open(playerUrl, '_blank');
         });
         grid.appendChild(card);
       });
