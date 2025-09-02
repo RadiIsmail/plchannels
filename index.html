@@ -1,133 +1,168 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimouCastTV - Sports</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SimouCastTV – Sports</title>
+  <!-- ✅ خط Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: "Arial", sans-serif;
-      background: linear-gradient(135deg, #2c003e, #000);
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(180deg, #3a0ca3, #000000);
       color: #fff;
     }
+
+    /* 🎇 العنوان */
     header {
+      background: none;
+      padding: 20px;
       text-align: center;
-      padding: 20px;
+      position: relative;
     }
-    header h1 {
-      font-size: 2.5rem;
+
+    header .title {
+      direction: ltr;
+      unicode-bidi: bidi-override;
+      font-size: 28px;
       font-weight: bold;
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    header .title span {
+      display: inline-block;
+      opacity: 0.5;
       color: #fff;
+      animation: glow 2s linear infinite;
     }
-    .glow {
-      color: #fff;
-      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #cccccc;
-      animation: whiteGlow 2s infinite alternate;
+
+    @keyframes glow {
+      0%, 100% {
+        color: #fff;
+        text-shadow: none;
+        opacity: 0.5;
+      }
+      50% {
+        color: #ffffff;
+        text-shadow: 0 0 8px #fff, 0 0 16px #fff;
+        opacity: 1;
+      }
     }
-    @keyframes whiteGlow {
-      from { text-shadow: 0 0 5px #fff, 0 0 10px #fff; }
-      to   { text-shadow: 0 0 20px #fff, 0 0 40px #fff; }
-    }
+
+    /* توزيع التأخير للحروف */
+    header .title span:nth-child(1) { animation-delay: 0s; }
+    header .title span:nth-child(2) { animation-delay: 0.1s; }
+    header .title span:nth-child(3) { animation-delay: 0.2s; }
+    header .title span:nth-child(4) { animation-delay: 0.3s; }
+    header .title span:nth-child(5) { animation-delay: 0.4s; }
+    header .title span:nth-child(6) { animation-delay: 0.5s; }
+    header .title span:nth-child(7) { animation-delay: 0.6s; }
+    header .title span:nth-child(8) { animation-delay: 0.7s; }
+    header .title span:nth-child(9) { animation-delay: 0.8s; }
+    header .title span:nth-child(10){ animation-delay: 0.9s; }
+    header .title span:nth-child(11){ animation-delay: 1.0s; }
+    header .title span:nth-child(12){ animation-delay: 1.1s; }
+    header .title span:nth-child(13){ animation-delay: 1.2s; }
+    header .title span:nth-child(14){ animation-delay: 1.3s; }
+    header .title span:nth-child(15){ animation-delay: 1.4s; }
+    header .title span:nth-child(16){ animation-delay: 1.5s; }
+    header .title span:nth-child(17){ animation-delay: 1.6s; }
+    header .title span:nth-child(18){ animation-delay: 1.7s; }
+
+    /* 🎥 قسم القنوات */
     .wrap {
-      padding: 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
     }
     h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.5rem;
+      font-size: 18px;
+      margin: 10px 0 15px;
+      color: #ffd60a;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 14px;
     }
-    .channel {
-      background: #1a1a1a;
-      border-radius: 15px;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .card {
+      background: rgba(93, 51, 181, 0.9); /* بنفسجي */
+      border: 2px solid #5e3bb4;
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all .2s ease;
       cursor: pointer;
     }
-    .channel:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px #ff0099;
+    .card:hover, .card.active {
+      border-color: #ffd60a;
+      box-shadow: 0 0 15px rgba(255,214,10,.6);
+      transform: translateY(-3px);
     }
-    .channel img {
+    .logo {
       width: 100%;
-      height: 110px;
-      object-fit: cover;
-      background: #000;
+      height: 90px;
+      object-fit: contain;
+      background: #0e0f11;
+      border-radius: 10px;
     }
-    .channel-name {
-      padding: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      background: #111;
-    }
-    .channel a {
-      color: inherit;
-      text-decoration: none;
-      display: block;
+    .name {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <!-- 🎇 العنوان -->
   <header>
-    <h1>
-      <span class="glow">SimouCastTV</span> – Sports
-    </h1>
+    <div class="title">
+      <span>S</span><span>i</span><span>m</span><span>o</span>
+      <span>u</span><span>C</span><span>a</span><span>s</span><span>t</span>
+      <span>T</span><span>V</span><span>–</span><span>S</span><span>p</span>
+      <span>o</span><span>r</span><span>t</span><span>s</span>
+    </div>
   </header>
+
+  <!-- 🎥 القنوات -->
   <div class="wrap">
-    <h2>📺 قائمة القنوات</h2>
-    <div class="grid" id="grid"></div>
+    <h2>📺 باقة الرياضة</h2>
+    <div id="grid" class="grid"></div>
   </div>
 
   <script>
-    // قائمة القنوات
+    // 🔹 روابط القنوات
     const channels = [
-      {
-        name: "Bein Sports HD",
-        img: "https://upload.wikimedia.org/wikipedia/commons/2/20/Bein_sports_logo.png",
-        link: "https://example.com/stream.m3u8",
-        category: "Sports"
-      },
-      {
-        name: "Canal+ Sport",
-        img: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Canal%2B_Sport_logo.png",
-        link: "http://ugeen.live/live/canal.m3u8",
-        category: "Sports"
-      },
-      {
-        name: "RMC Sport",
-        img: "No Logo",
-        link: "https://rmc.live/stream/123.m3u8",
-        category: "Sports"
-      }
+      { name: "Star Sports 1", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/16-by-xfireflix.png", link: "https://d5.merichunidya.com:1686/hls/star1in.m3u8" },
+      { name: "Star Sports 1 Hindi", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/1-by-xfireflix.png", link: "https://d9.merichunidya.com:1686/hls/starhindi.m3u8" },
+      { name: "PTV Sports", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/20-by-xfireflix.png", link: "https://d3.merichunidya.com:1686/hls/ptvpk.m3u8" },
+      { name: "Willow HD", img: "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/38-by-xfireflix.png", link: "https://d5.merichunidya.com:1686/hls/willowusa.m3u8" }
     ];
 
-    const grid = document.getElementById("grid");
+    const grid = document.getElementById('grid');
 
-    channels.forEach(channel => {
-      // رابط MX Player (العادي)
-      const mxLink = `intent://${channel.link.replace(/^https?:\/\//, '')}#Intent;package=com.mxtech.videoplayer.ad;S.title=${encodeURIComponent(channel.name)};end`;
-      // رابط MX Player Pro
-      const mxLinkPro = `intent://${channel.link.replace(/^https?:\/\//, '')}#Intent;package=com.mxtech.videoplayer.pro;S.title=${encodeURIComponent(channel.name)};end`;
+    function render(list) {
+      grid.innerHTML = '';
+      list.forEach(ch => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img class="logo" src="${ch.img}" alt="${ch.name}" />
+          <div class="name">${ch.name}</div>
+        `;
+        card.addEventListener('click', () => {
+          window.location.href = ch.link;
+        });
+        grid.appendChild(card);
+      });
+    }
 
-      // إنشاء البطاقة
-      const card = document.createElement("div");
-      card.className = "channel";
-
-      card.innerHTML = `
-        <a href="${mxLink}" onclick="setTimeout(() => { window.location='${mxLinkPro}'; }, 1200);">
-          <img src="${channel.img && channel.img !== 'No Logo' ? channel.img : 'https://via.placeholder.com/150x100?text=No+Logo'}" alt="${channel.name}">
-          <div class="channel-name">${channel.name}</div>
-        </a>
-      `;
-
-      grid.appendChild(card);
-    });
+    render(channels);
   </script>
 </body>
 </html>
